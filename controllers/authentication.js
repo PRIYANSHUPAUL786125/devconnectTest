@@ -16,10 +16,11 @@ const signupPost=async (req,res)=>{
     else{
         const data=await user.create({
             username,email,password:hashedPass
-        })
+        });
+        req.session.isLoggedIn=true;
         console.log(data)
     }
-    res.redirect('/signup');
+    res.redirect('/login');
 }
 const loginPost=async (req,res)=>{
     const {email,password}=req.body;
@@ -27,7 +28,8 @@ const loginPost=async (req,res)=>{
     if(prevUser){
         let isReal=await bcrypt.compare(password,prevUser.password);
         if(isReal){
-            res.redirect('/home');
+            req.session.isLoggedIn=true;
+            return res.redirect('/home');
         }
     }
     else{
@@ -35,6 +37,11 @@ const loginPost=async (req,res)=>{
     }
 }
 const home=(req,res)=>{
-    res.send('welcome');
+    if(req.session.isLoggedIn){
+        res.render('home');
+    }
+    else{
+        res.send('first login then enter');
+    }
 }
 module.exports={signup,login,signupPost,loginPost,home}
