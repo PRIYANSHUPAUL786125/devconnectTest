@@ -1,0 +1,24 @@
+{
+  "name": "devconnecttest",
+  "version": "1.0.0",
+  "description": "🚀 Project: DevConnect – A Developer Social Network",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PRIYANSHUPAUL786125/devconnectTest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PRIYANSHUPAUL786125/devconnectTest/issues"
+  },
+  "homepage": "https://github.com/PRIYANSHUPAUL786125/devconnectTest#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}
